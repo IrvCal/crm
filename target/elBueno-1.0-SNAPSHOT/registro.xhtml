@@ -1,12 +1,62 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Registro CRM</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+            />
+        <link rel="stylesheet" href="css/registro.css" />
     </h:head>
     <h:body>
-        regiter
+        <h:form id="formid">
+            <div class="container-fluid">
+                <div class="container-fluid marco">
+                    <h1 class="text-center">Registro de Usuario</h1>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                        <h:inputText id="user_name" class="form-control" p:placeholder="Ingresa Nombre(s)" /> 
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Ap. Paterno</span>
+                        <h:inputText id="ap_paterno" class="form-control" p:placeholder="Ingresa Apellido Paterno"  /> 
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Ap. Materno</span>
+                        <h:inputText id="ap_materno" class="form-control" p:placeholder="Ingresa Apellido Materno"  /> 
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                        <h:inputSecret id="pass_registro" class="form-control" p:placeholder="Ingresa una contraseña"  /> 
+                    </div>
+                    <h:outputLabel id="lab-pass" ><small> La contraseña debe constar de una letra mayuscula y de 5 a 20 caracteres</small></h:outputLabel>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Confirmar Contraseña</span>
+                        <h:inputSecret id="pass_confirm" class="form-control" p:placeholder="Confirma tu contraseña"  /> 
+                    </div>
+                     <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Correo Electrónico</span>
+                        <h:inputText id="pass" class="form-control" p:placeholder="Ingresa tu correo electrónico"  /> 
+                    </div>
+                    <h:outputLabel id="email_registro" ><small> El correo debe tener la siguente estructura: ejemplo@mail.com </small></h:outputLabel>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-grid gap-2">
+                                    <h:commandButton id="btn_reg"  action="#{registro.menu()}" class="btn btn-primary" value="Registrarse" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </h:form>
     </h:body>
 </html>
 
