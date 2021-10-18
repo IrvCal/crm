@@ -32,4 +32,9 @@ public class menu implements Serializable{
         return "carrito.xhtml";
     }
     
+    public String cerrar ()
+    {
+        return "login.xhtml";
+    }
+    
 }

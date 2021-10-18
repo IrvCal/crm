@@ -20,7 +20,7 @@ public class Access implements Serializable {
         if (password == null || email == null
                 || password == "" || email == "" || password.length() == 0
                 || email.length() == 0) {
-            makeMessege("ESCRIBA UN CORREO Y UNA CONTRASENIA");
+            makeMessege("ESCRIBA UN CORREO Y UNA CONTRASEÑA");
         } else {
             if (password.length() < 5 || password.length() > 20) {
                 makeMessege("LA CONTRASENIA DEBE TENER DE 5 A 20 CARACTERES");
@@ -29,14 +29,14 @@ public class Access implements Serializable {
                     if (new Validacion().validarLoogin(email, password)) {
                         return "menu.xhtml";
                     } else {
-                        makeMessege("EL USUARIO Y CONTRASENIA NO COINCIDEN");
+                        makeMessege("EL USUARIO Y CONTRASEÑA NO COINCIDEN");
                     }
                 }else{
                     makeMessege("CORREO NO VALIDO");
                 }
             }
         }
-        return "inicio.xhtml";
+        return "login.xhtml";
     }
 
     public String getUser() {
