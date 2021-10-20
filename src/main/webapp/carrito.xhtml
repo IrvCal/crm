@@ -3,10 +3,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Carrito</title>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="css/carrito.css" />
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <div class="container-fluid containers">
+                <div class="container-fluid containers">
+                    <h1 class="text-center fw-bold">Carrito de compras</h1>
+                    <table class="table table-primary">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><img class="img" src="imgs/teclas.png" alt="los astro de edgar"/></td>
+                                <td>Teclado gaming para haltas horas de diversión</td>
+                                <td>
+                                    <h:inputText  class="btn btn-danger" value="Remover"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><img class="img" src="imgs/astrolosquier.png" alt="los astro de edgar"/></td>
+                                <td>Audifonos para gamers profecionales de alto rendimiento</td>
+                                <td>
+                                    <h:inputText  class="btn btn-danger" value="Remover"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><img class="img" src="imgs/mouse.png" alt="los astro de edgar"/></td>
+                                <td>Hermoso mouse gaming para jugadores profecionales.</td>
+                                <td>
+                                    <h:inputText  class="btn btn-danger" value="Remover"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-4">
+
+                            </div>
+                            <div class="col-4">
+                                <div class="container px-4">
+                                    <div class="row gx-5">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">Total:</span>
+                                                <input type="text" value="$5000" readonly="true" class="form-control"
+                                                       aria-label="Username" aria-describedby="basic-addon1"/>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <h:commandButton id="btn_carrito_conf"  class="btn btn-danger" value="Comprar" action="#{carrito.confirmar()}"/>
+                                        </div>  
+                                        <div class="col">
+
+                                            <h:commandButton id="btn_carrito_home"  class="btn btn-danger" value="Volver al inicio" action="#{carrito.inicio()}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

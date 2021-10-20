@@ -3,10 +3,98 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Catalogo</title>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+              crossorigin="anonymous"
+              />
+        <link rel="stylesheet" href="css/catalogo.css"/> 
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <div class="container-fluid div-title">
+                <div class="container titulo_reg">
+                    <h1 class="text-center">Catalogo</h1>
+                </div>
+            </div>
+
+            <div class="container-fluid contenido">
+                <table class="table table-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Agregar a carrito</th>
+                            <th scope="col">Piezas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><img class="img" src="imgs/teclas.png" alt="los astro de edgar"/></td>
+                            <td>Teclado gaming para haltas horas de diversión</td>
+                            <td><button type="button" class="btn btn-success">Agregar</button></td>
+                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cantidad
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>
+                                <img class="img" src="imgs/astrolosquier.png" alt="los astro de edgar"/></td>
+                            <td>Audifonos para gamers profecionales de alto rendimiento</td>
+                            <td><button type="button" class="btn btn-success">Agregar</button></td>
+                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cantidad
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td><img class="img" src="imgs/mouse.png" alt="los astro de edgar"/></td>
+                            <td>Hermoso mouse gaming para jugadores profecionales.</td>
+                            <td><button type="button" class="btn btn-success">Agregar</button></td>
+                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cantidad
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="conteiner">
+                    <div class="row">
+                        <div class="d-grid gap-2 col-sm">
+
+                            <h:commandButton id="btn_category"  class="btn btn-primary" value="Categorias" action="#{catalogo.categorias()}"/>
+
+                        </div>
+                        <div class="d-grid gap-2 col-sm">
+                            <h:commandButton id="btn_start"  class="btn btn-primary" value="Inicio" action="#{catalogo.inicio()}"/>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div> 
+        </h:form>
     </h:body>
 </html>
 

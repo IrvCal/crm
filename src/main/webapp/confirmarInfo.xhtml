@@ -3,10 +3,130 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Confirmar Informacion </title>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+              crossorigin="anonymous"/>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+            />
+        <link rel="stylesheet" href="css/carrito.css" />
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <table class="table table-primary">
+                <td width="600">
+                    <div class="container-fluid">
+                        <div class="container-fluid marco">
+                            <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+                                <div class="card p-4">
+                                    <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                                        <button class="btn btn-secondary"> 
+                                            <img src="imgs/perfil.png " height="100" width="100" />
+                                        </button> 
+                                        <span class="name mt-3">Usuario Garía Pérez</span>
+
+                                        <span class="idd">usuario@mail.com</span>
+                                        <br></br>
+
+                                        <div class="container">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col-md-auto">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    Direccion
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                
+                                                <h:inputText class="form-control" value="Calle: Circuito Gaviotas" />
+                                                <h:inputText class="form-control" value="No. Interior: Mz-10"/>
+                                                <h:inputText class="form-control" value="No. Exterior: Lt-16 A"/>
+                                                <h:inputText class="form-control" value="Colonia: Sauces III"/>
+                                                <h:inputText class="form-control" value="Municipio: Toluca"/>
+                                                <h:inputText class="form-control" value="Estado: México"/>
+                                                <h:inputText class="form-control" value="Código Postal: 50210"/>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>  
+                </td>
+
+                <td>
+                    <div class="container-fluid containers">
+                        <div class="container-fluid containers">
+                            
+                            <table class="table table-primary">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Descripción</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><img class="img" src="imgs/teclas.png" alt="los astro de edgar"/></td>
+                                        <td>Teclado gaming para haltas horas de diversión</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td><img class="img" src="imgs/astrolosquier.png" alt="los astro de edgar"/></td>
+                                        <td>Audifonos para gamers profecionales de alto rendimiento</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td><img class="img" src="imgs/mouse.png" alt="los astro de edgar"/></td>
+                                        <td>Hermoso mouse gaming para jugadores profecionales.</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="container">
+                                <div class="row justify-content-between">
+                                    <div class="col-4">
+
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="container px-4">
+                                            <div class="row gx-5">
+                                                <div class="col">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">Total:</span>
+                                                        <input type="text" value="$5000" readonly="true" class="form-control"
+                                                               aria-label="Username" aria-describedby="basic-addon1"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h:commandButton id="btn_carrito_conf"  class="btn btn-danger" value="Comprar" action="#{confirmar.agradecimiento()}"/>
+                                                        <h:commandButton id="btn_carrito_reg"  class="btn btn-danger" value="Regresar" action="#{confirmar.regresar()}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+            </table>
+
+
+
+
+        </h:form>
     </h:body>
 </html>
 
