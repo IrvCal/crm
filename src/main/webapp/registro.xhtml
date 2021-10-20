@@ -19,35 +19,35 @@
                     <h1 class="text-center">Registro de Usuario</h1>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nombre</span>
-                        <h:inputText id="user_name" class="form-control" p:placeholder="Ingresa Nombre(s)" /> 
+                        <h:inputText id="user_name" class="form-control" p:placeholder="Ingresa Nombre(s)" value="#{registro.nombre}"/> 
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Ap. Paterno</span>
-                        <h:inputText id="ap_paterno" class="form-control" p:placeholder="Ingresa Apellido Paterno"  /> 
+                        <h:inputText id="ap_paterno" class="form-control" p:placeholder="Ingresa Apellido Paterno"  value="#{registro.apPaterno}"/> 
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Ap. Materno</span>
-                        <h:inputText id="ap_materno" class="form-control" p:placeholder="Ingresa Apellido Materno"  /> 
+                        <h:inputText id="ap_materno" class="form-control" p:placeholder="Ingresa Apellido Materno" value="#{registro.apMaterno}" /> 
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Contraseña</span>
-                        <h:inputSecret id="pass_registro" class="form-control" p:placeholder="Ingresa una contraseña"  /> 
+                        <h:inputSecret id="pass_registro" class="form-control" p:placeholder="Ingresa una contraseña" value="#{registro.pass}" /> 
                     </div>
                     <h:outputLabel id="lab-pass" ><small> La contraseña debe constar de una letra mayúscula y de 5 a 20 caracteres</small></h:outputLabel>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Confirmar Contraseña</span>
-                        <h:inputSecret id="pass_confirm" class="form-control" p:placeholder="Confirma tu contraseña"  /> 
+                        <h:inputSecret id="pass_confirm" class="form-control" p:placeholder="Confirma tu contraseña"  value="#{registro.passRep}"/> 
                     </div>
                      <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Correo Electrónico</span>
-                        <h:inputText id="pass" class="form-control" p:placeholder="Ingresa tu correo electrónico"  /> 
+                        <h:inputText id="pass" class="form-control" p:placeholder="Ingresa tu correo electrónico" value="#{registro.email}" /> 
                     </div>
                     <h:outputLabel id="email_registro" ><small> El correo debe tener la siguente estructura: ejemplo@mail.com </small></h:outputLabel>
                     <div class="container">
                         <div class="row">
                             <div class="col">
                                 <div class="d-grid gap-2">
-                                    <h:commandButton id="btn_reg"  action="#{registro.menu()}" class="btn btn-primary" value="Registrarse" />
+                                    <h:commandButton id="btn_reg"  action="#{registro.registrarUsuario()}" class="btn btn-primary" value="Registrarse" />
                                 </div>
                             </div>
                             
