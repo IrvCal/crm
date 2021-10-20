@@ -1,7 +1,10 @@
-com\mycompany\elbueno\Validacion.class
 com\mycompany\elbueno\menu.class
 com\mycompany\elbueno\Conexion.class
 com\mycompany\elbueno\JAXRSConfiguration.class
-com\mycompany\elbueno\Access.class
+com\mycompany\elbueno\perfil.class
 com\mycompany\elbueno\resources\JavaEE8Resource.class
 com\mycompany\elbueno\Registro.class
+com\mycompany\elbueno\Validacion.class
+com\mycompany\elbueno\Access.class
+com\mycompany\elbueno\carrito.class
+com\mycompany\elbueno\direccion.class
