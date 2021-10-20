@@ -12,7 +12,7 @@ public class Access implements Serializable {
     private String password;
 
     public String validar() {
-
+        System.out.println("Validando");
         if (password == null || email == null
                 || password == "" || email == "" || password.length() == 0
                 || email.length() == 0) {
@@ -22,11 +22,16 @@ public class Access implements Serializable {
                Utils.makeMessege("LA CONTRASENIA DEBE TENER DE 5 A 20 CARACTERES");
             } else {
                 if (Utils.validaCorreo(email,1)) {
-                    if (new Validacion().validarLoogin(email, password)) {
-                        return "menu.xhtml";
-                    } else {
-                        Utils.makeMessege("EL USUARIO Y CONTRASEÑA NO COINCIDEN");
+                    if(Utils.correoExisteDB(email)){
+                        if (new Validacion().validarLoogin(email, password)) {
+                            return "menu.xhtml";
+                        } else {
+                            Utils.makeMessege("EL USUARIO Y CONTRASEÑA NO COINCIDEN");
+                        }
+                    }else{
+                        Utils.makeMessege("ESTE CORREO NO ESTA REGISTRADO");
                     }
+                    
                 }else{
                     Utils.makeMessege("CORREO NO VALIDO");
                 }

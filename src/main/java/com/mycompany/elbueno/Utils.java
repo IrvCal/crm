@@ -19,12 +19,15 @@ import javax.faces.context.FacesContext;
  */
 public class Utils {
 
-    public static boolean validaCamposVacios(String... campos){
-        for(String e : campos){
-            if(e.equals(""))return false;
+    public static boolean validaCamposVacios(String... campos) {
+        for (String e : campos) {
+            if (e.equals("")) {
+                return false;
+            }
         }
         return true;
     }
+
     /**
      * Valida un ya sea el correo o los nombres
      *
@@ -61,8 +64,8 @@ public class Utils {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(message));
     }
-   
-    public static void closeConections(Connection conexion,ResultSet resultSet, PreparedStatement preparedStatement){
+
+    public static void closeConections(Connection conexion, ResultSet resultSet, PreparedStatement preparedStatement) {
         try {
             conexion.close();
             resultSet.close();
@@ -71,6 +74,38 @@ public class Utils {
             System.out.println("Error closeConections");
         }
     }
-        
+    public static void closeConections(Connection conexion, PreparedStatement preparedStatement) {
+        try {
+            conexion.close();
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.out.println("Error closeConections");
+        }
+    }
 
+    public static boolean correoExisteDB(String email) {
+
+        Conexion con;
+        Connection cn;
+        PreparedStatement ps;
+        ResultSet rs;
+        String query;
+        try {
+            query = "select * from users where user_name = '" + email + "'";
+            con = new Conexion();
+            cn = con.conectarse();
+            ps = cn.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("Usuario existente");
+                closeConections(cn, rs, ps);
+                return true;
+            }
+            closeConections(cn, rs, ps);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
 }

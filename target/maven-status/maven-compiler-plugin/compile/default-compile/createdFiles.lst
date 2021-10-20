@@ -11,5 +11,6 @@ com/mycompany/elbueno/categorias.class
 com/mycompany/elbueno/menu.class
 com/mycompany/elbueno/confirmar.class
 com/mycompany/elbueno/Access.class
+dao/UserDAO.class
 com/mycompany/elbueno/direccion.class
 com/mycompany/elbueno/JAXRSConfiguration.class

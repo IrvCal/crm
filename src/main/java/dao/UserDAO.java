@@ -19,20 +19,27 @@ public class UserDAO {
     private Conexion con;
     private Connection cn;
     private PreparedStatement ps;
-    private ResultSet rs;
+    private String query;
 
-    public boolean insertUser(String nombre, String apPat, String apMat, String email, String pass) {
-        String query = "insert into users (name,apPat,apMat,user_name,password) values ('"
-                +nombre+"','"+apPat+"','"+apMat+"','"+email+"','"+pass+"')";
+    public int insertUser(String nombre, String apPat, String apMat, String email, String pass) {
         try {
-            con = new Conexion();
-            cn = con.conectarse();
-            ps = cn.prepareStatement(query);
-            rs = ps.executeQuery();
-            Utils.closeConections(cn, rs, ps);
+            if (Utils.correoExisteDB(email)) {
+                System.out.println("Usuario existente");
+                return 2;
+            } else {
+                con = new Conexion();
+                cn = con.conectarse();
+                query = "insert into users (name,apPat,apMat,user_name,password) values ('"
+                        + nombre + "','" + apPat + "','" + apMat + "','" + email + "','" + pass + "')";
+                ps = cn.prepareStatement(query);
+                ps.executeUpdate();
+
+                Utils.closeConections(cn, ps);
+                return 1;
+            }
         } catch (Exception e) {
-            System.out.println("Error de guardado de usuario " + e.toString());
+            System.out.println("Error de guardado de usuario " + e);
         }
-        return true;
+        return 3;
     }
 }
