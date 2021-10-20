@@ -90,7 +90,7 @@ public class Registro implements Serializable {
     public String registrarUsuario() {
 
         //La abundancia de los ifs es el poder de las redes neuronales hoy en dia XD
-        if (Utils.validaCamposVacios(nombre, apMaterno, apPaterno, email, pass, passRep)) {
+        if (Utils.camposNoVacios(nombre, apMaterno, apPaterno, email, pass, passRep)) {
             if (Utils.validaCorreo(nombre, 2)) {
                 if (Utils.validaCorreo(apPaterno, 2)) {
                     if (Utils.validaCorreo(nombre, 2)) {

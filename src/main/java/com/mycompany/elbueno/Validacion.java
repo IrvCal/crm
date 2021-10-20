@@ -5,6 +5,7 @@
  */
 package com.mycompany.elbueno;
 
+import dto.UserDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +31,8 @@ public class Validacion {
             rs = ps.executeQuery();
             if (rs.next()|| rs!= null) {
                 System.out.println(rs.getString("user_name")+ "***" + rs.getString("password"));
+                StaticAtributes.USER = new UserDTO(rs.getInt("id"),rs.getString("name"),rs.getString("appat"),rs.getString("apmat"),pass,email,rs.getString("telefono"));
+                System.out.println(StaticAtributes.USER.toString());
                 return true;
             }
         } catch (Exception e) {

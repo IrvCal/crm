@@ -13,9 +13,7 @@ public class Access implements Serializable {
 
     public String validar() {
         System.out.println("Validando");
-        if (password == null || email == null
-                || password == "" || email == "" || password.length() == 0
-                || email.length() == 0) {
+        if (!Utils.camposNoVacios(email,password)) {
             Utils.makeMessege("ESCRIBA UN CORREO Y UNA CONTRASEÑA");
         } else {
             if (password.length() < 5 || password.length() > 20) {

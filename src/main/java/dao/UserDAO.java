@@ -5,6 +5,7 @@
 package dao;
 
 import com.mycompany.elbueno.Conexion;
+import com.mycompany.elbueno.StaticAtributes;
 import com.mycompany.elbueno.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,5 +42,21 @@ public class UserDAO {
             System.out.println("Error de guardado de usuario " + e);
         }
         return 3;
+    }
+
+    public boolean updatePhone(String telefono) {
+        try {
+            con = new Conexion();
+            cn = con.conectarse();
+            query = "update users set telefono = '"+telefono+"' where id = "+StaticAtributes.USER.getId();
+            ps = cn.prepareStatement(query);
+            ps.executeUpdate();
+            StaticAtributes.USER.setTelefono(telefono);
+            Utils.closeConections(cn, ps);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error updatePhone" + e.toString());
+        }
+        return false;
     }
 }

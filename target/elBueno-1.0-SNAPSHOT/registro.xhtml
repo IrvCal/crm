@@ -31,12 +31,12 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Contraseña</span>
-                        <h:inputSecret id="pass_registro" class="form-control" p:placeholder="Ingresa una contraseña" value="#{registro.pass}" /> 
+                        <h:inputSecret id="pass_registro" class="form-control" p:placeholder="Ingresa una contraseña" value="#{registro.pass}" maxlength="20"/> 
                     </div>
                     <h:outputLabel id="lab-pass" ><small> La contraseña debe constar de una letra mayúscula y de 5 a 20 caracteres</small></h:outputLabel>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Confirmar Contraseña</span>
-                        <h:inputSecret id="pass_confirm" class="form-control" p:placeholder="Confirma tu contraseña"  value="#{registro.passRep}"/> 
+                        <h:inputSecret id="pass_confirm" class="form-control" p:placeholder="Confirma tu contraseña"  value="#{registro.passRep}" maxlength="20"/> 
                     </div>
                      <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Correo Electrónico</span>

@@ -23,38 +23,38 @@
                                 <button class="btn btn-secondary"> 
                                     <img src="imgs/perfil.png " height="100" width="100" />
                                 </button> 
-                                <span class="name mt-3">Usuario Gracía Pérez</span>
+                                <span class="name mt-3">Usuario Usuario #{perfil.user.nombre} #{perfil.user.apPaterno} #{perfil.user.apMaterno}</span>
                                 <br></br>
-                                <span class="idd">usuario@mail.com</span>
+                                <span class="idd">#{perfil.user.email}</span>
                                 <br></br>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Calle</span>
-                                    <h:inputText id="calle" class="form-control" /> 
+                                    <h:inputText id="calle" class="form-control" value="#{direccion.calle}"/> 
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Colonia</span>
-                                    <h:inputText id="colonia" class="form-control" /> 
+                                    <h:inputText id="colonia" class="form-control" value="#{direccion.colonia}" /> 
 
-                                    <span class="input-group-text" id="basic-addon1">No. Interior</span>
-                                    <h:inputText id="no_int" class="form-control" />
-                                    <span class="input-group-text" id="basic-addon1">No. Exterior</span>
-                                    <h:inputText id="no_ext" class="form-control" />
+                                    <span class="input-group-text" id="basic-addon1" >No. Interior</span>
+                                    <h:inputText id="no_int" class="form-control" maxlength="4"/>
+                                    <span class="input-group-text" id="basic-addon1" converterMessage="Please enter digits only." >No. Exterior</span>
+                                    <h:inputText id="no_ext" class="form-control"  maxlength="4"/>
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Municipio</span>
-                                    <h:inputText id="municipio" class="form-control"/> 
+                                    <h:inputText id="municipio" class="form-control" value="#{direccion.municipio}"/> 
 
                                     <span class="input-group-text" id="basic-addon1">Estado</span>
-                                    <h:inputText id="estado" class="form-control"/> 
+                                    <h:inputText id="estado" class="form-control" value="#{direccion.estado}"/> 
 
                                     <span class="input-group-text" id="basic-addon1">C.P</span>
-                                    <h:inputText id="codigo_post" class="form-control" p:placeholder="Codigo Postal" /> 
+                                    <h:inputText id="codigo_post" class="form-control" p:placeholder="Codigo Postal" value="#{direccion.cp}" maxlength="5"/> 
                                 </div>
 
-                                <h:commandButton id="btn_perfil_regresar"  action="#{direccion.guardar()}" class="btn btn-primary"  value="Guardar"/>
+                                <h:commandButton id="btn_perfil_regresar"  action="#{direccion.guardarDireccionDB()}" class="btn btn-primary"  value="Guardar"/>
                             </div>
                         </div>
                     </div>
