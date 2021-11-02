@@ -9,78 +9,326 @@
               integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
               crossorigin="anonymous"/>
         <link rel="stylesheet" href="css/carrito.css" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/simpleCart.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+        <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
     </h:head>
     <h:body>
-        <h:form>
-            <div class="container-fluid containers">
-                <div class="container-fluid containers">
-                    <h1 class="text-center fw-bold">Carrito de compras</h1>
-                    <table class="table table-primary">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Imagen</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Remover</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td><img class="img" src="imgs/teclas.png" alt="los astro de edgar"/></td>
-                                <td>Teclado gaming para haltas horas de diversión</td>
-                                <td>
-                                    <h:inputText  class="btn btn-danger" value="Remover"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><img class="img" src="imgs/astrolosquier.png" alt="los astro de edgar"/></td>
-                                <td>Audifonos para gamers profecionales de alto rendimiento</td>
-                                <td>
-                                    <h:inputText  class="btn btn-danger" value="Remover"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><img class="img" src="imgs/mouse.png" alt="los astro de edgar"/></td>
-                                <td>Hermoso mouse gaming para jugadores profecionales.</td>
-                                <td>
-                                    <h:inputText  class="btn btn-danger" value="Remover"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="container">
-                        <div class="row justify-content-between">
-                            <div class="col-4">
+        <div class="breadcrumb_dress">
+            <div class="container">
+                <ul>
+                    <li><a href="menu.xhtml"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+                    <li>Carrito</li>
+                </ul>
+            </div>
+        </div>
+        <div class="checkout">
+            <div class="container">
+                <h3>Your shopping cart contains: <span>3 Products</span></h3>
 
-                            </div>
-                            <div class="col-4">
-                                <div class="container px-4">
-                                    <div class="row gx-5">
-                                        <div class="col">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Total:</span>
-                                                <input type="text" value="$5000" readonly="true" class="form-control"
-                                                       aria-label="Username" aria-describedby="basic-addon1"/>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <h:commandButton id="btn_carrito_conf"  class="btn btn-danger" value="Comprar" action="#{carrito.confirmar()}"/>
-                                        </div>  
-                                        <div class="col">
+                <div class="checkout-right">
+                    <h:dataTable class="timetable_sub" value="#{carrito.productos}" var="producto">
+                        <tr class="rem1">
+                            <h:column>1</h:column>
+                            <h:column>#{producto.nombre}</h:column>
+                            <h:column>#{producto.descripcion}</h:column>
+                            <h:column>#{producto.precio}</h:column>
+                        </tr>
+                        <script>
+                            $('.value-plus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                divUpd.text(newVal);
+                            });
 
-                                            <h:commandButton id="btn_carrito_home"  class="btn btn-danger" value="Volver al inicio" action="#{carrito.inicio()}"/>
+                            $('.value-minus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                if (newVal >= 1)
+                                    divUpd.text(newVal);
+                            });
+                        </script>
+                        <!--quantity-->
+                    </h:dataTable>
+                </div>
+                <div class="checkout-left">	
+                    <div class="checkout-left-basket">
+                        <h4>Continue to basket</h4>
+                        <ul>
+                            <li>Product1 <i>-</i> <span>$200.00 </span></li>
+                            <li>Product2 <i>-</i> <span>$270.00 </span></li>
+                            <li>Product3 <i>-</i> <span>$212.00 </span></li>
+                            <li>Total Service Charges <i>-</i> <span>$15.00</span></li>
+                            <li>Total <i>-</i> <span>$697.00</span></li>
+                        </ul>
+                    </div>
+                    <div class="checkout-right-basket">
+                        <a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3l_related_products">
+            <div class="container">
+                <h3>Related Products</h3>
+                <ul id="flexiselDemo2">			
+                    <li>
+                        <div class="w3l_related_products_grid">
+                            <div class="agile_ecommerce_tab_left dresses_grid">
+                                <div class="hs-wrapper hs-wrapper3">                            
+                                    <div class="w3_hs_bottom">
+                                        <div class="flex_ecommerce">
+                                            <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                                         </div>
                                     </div>
                                 </div>
+                                <h5><a href="single.html">Pink Flared Skirt</a></h5>
+                                <div class="simpleCart_shelfItem">
+                                    <p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">$212</i></p>
+                                    <p><a class="item_add" href="#">Add to cart</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </h:form>
-    </h:body>
-</html>
+                    </li>
+                    <li>
+                        <div class="w3l_related_products_grid">
+                            <div class="agile_ecommerce_tab_left dresses_grid">
+                                <div class="hs-wrapper hs-wrapper3">
+                                    
+                                                                    <div class="w3_hs_bottom">
+                                                                        <div class="flex_ecommerce">
+                                                                            <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    <h5><a href="single.html">Red Pencil Skirt</a></h5>
+                                                                    <div class="simpleCart_shelfItem">
+                                                                        <p class="flexisel_ecommerce_cart"><span>$432</span> <i class="item_price">$323</i></p>
+                                                                        <p><a class="item_add" href="#">Add to cart</a></p>
+                                                                    </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="w3l_related_products_grid">
+                                                                            <div class="agile_ecommerce_tab_left dresses_grid">
+                                                                                <div class="hs-wrapper hs-wrapper3">
+                                                                                   
+                                                                                                                    <div class="w3_hs_bottom">
+                                                                                                                        <div class="flex_ecommerce">
+                                                                                                                            <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    <h5><a href="single.html">Yellow Cotton Skirt</a></h5>
+                                                                                                                    <div class="simpleCart_shelfItem">
+                                                                                                                        <p class="flexisel_ecommerce_cart"><span>$323</span> <i class="item_price">$310</i></p>
+                                                                                                                        <p><a class="item_add" href="#">Add to cart</a></p>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </div>
+                                                                                                                    </li>
+                                                                                                                    <li>
+                                                                                                                        <div class="w3l_related_products_grid">
+                                                                                                                            <div class="agile_ecommerce_tab_left dresses_grid">
+                                                                                                                                <div class="hs-wrapper hs-wrapper3">
+                                                                                                                                   
+                                                                                                                                                                    <div class="w3_hs_bottom">
+                                                                                                                                                                        <div class="flex_ecommerce">
+                                                                                                                                                                            <a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <h5><a href="single.html">Black Short</a></h5>
+                                                                                                                                                                    <div class="simpleCart_shelfItem">
+                                                                                                                                                                        <p class="flexisel_ecommerce_cart"><span>$256</span> <i class="item_price">$200</i></p>
+                                                                                                                                                                        <p><a class="item_add" href="#">Add to cart</a></p>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    </li>
+                                                                                                                                                                    </ul>
+                                                                                                                                                                    <script type="text/javascript">
+                                                                                                                                                                        $(window).load(function () {
+                                                                                                                                                                            $("#flexiselDemo2").flexisel({
+                                                                                                                                                                                visibleItems: 4,
+                                                                                                                                                                                animationSpeed: 1000,
+                                                                                                                                                                                autoPlay: true,
+                                                                                                                                                                                autoPlaySpeed: 3000,
+                                                                                                                                                                                pauseOnHover: true,
+                                                                                                                                                                                enableResponsiveBreakpoints: true,
+                                                                                                                                                                                responsiveBreakpoints: {
+                                                                                                                                                                                    portrait: {
+                                                                                                                                                                                        changePoint: 480,
+                                                                                                                                                                                        visibleItems: 1
+                                                                                                                                                                                    },
+                                                                                                                                                                                    landscape: {
+                                                                                                                                                                                        changePoint: 640,
+                                                                                                                                                                                        visibleItems: 2
+                                                                                                                                                                                    },
+                                                                                                                                                                                    tablet: {
+                                                                                                                                                                                        changePoint: 768,
+                                                                                                                                                                                        visibleItems: 3
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            });
+
+                                                                                                                                                                        });
+                                                                                                                                                                    </script>
+                                                                                                                                                                    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+                                                                                                                                                                        <div class="modal-dialog" role="document">
+                                                                                                                                                                            <div class="modal-content">
+                                                                                                                                                                                <div class="modal-header">
+                                                                                                                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+                                                                                                                                                                                </div>
+                                                                                                                                                                                <section>
+                                                                                                                                                                                    <div class="modal-body">
+                                                                                                                                                                                        <div class="col-md-5 modal_body_left">
+                                                                                                                                                                                            <img src="images/39.jpg" alt=" " class="img-responsive" />
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                        <div class="col-md-7 modal_body_right">
+                                                                                                                                                                                            <h4>a good look women's Long Skirt</h4>
+                                                                                                                                                                                            <p>Ut enim ad minim veniam, quis nostrud 
+                                                                                                                                                                                                exercitation ullamco laboris nisi ut aliquip ex ea 
+                                                                                                                                                                                                commodo consequat.Duis aute irure dolor in 
+                                                                                                                                                                                                reprehenderit in voluptate velit esse cillum dolore 
+                                                                                                                                                                                                eu fugiat nulla pariatur. Excepteur sint occaecat 
+                                                                                                                                                                                                cupidatat non proident, sunt in culpa qui officia 
+                                                                                                                                                                                                deserunt mollit anim id est laborum.</p>
+                                                                                                                                                                                            <div class="rating">
+                                                                                                                                                                                                <div class="rating-left">
+                                                                                                                                                                                                    <img src="images/star-.png" alt=" " class="img-responsive" />
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="rating-left">
+                                                                                                                                                                                                    <img src="images/star-.png" alt=" " class="img-responsive" />
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="rating-left">
+                                                                                                                                                                                                    <img src="images/star-.png" alt=" " class="img-responsive" />
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="rating-left">
+                                                                                                                                                                                                    <img src="images/star.png" alt=" " class="img-responsive" />
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="rating-left">
+                                                                                                                                                                                                    <img src="images/star.png" alt=" " class="img-responsive" />
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <div class="clearfix"> </div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <div class="modal_body_right_cart simpleCart_shelfItem">
+                                                                                                                                                                                                <p><span>$320</span> <i class="item_price">$250</i></p>
+                                                                                                                                                                                                <p><a class="item_add" href="#">Add to cart</a></p>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                            <h5>Color</h5>
+                                                                                                                                                                                            <div class="color-quality">
+                                                                                                                                                                                                <ul>
+                                                                                                                                                                                                    <li><a href="#"><span></span>Red</a></li>
+                                                                                                                                                                                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                                                                                                                                                                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                                                                                                                                                                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                                                                                                                                                                                </ul>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                        <div class="clearfix"> </div>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </section>
+                                                                                                                                                                            </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <!-- //checkout -->
+                                                                                                                                                                    <!-- newsletter -->
+                                                                                                                                                                    <div class="newsletter">
+                                                                                                                                                                        <div class="container">
+                                                                                                                                                                            <div class="col-md-6 w3agile_newsletter_left">
+                                                                                                                                                                                <h3>Newsletter</h3>
+                                                                                                                                                                                <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            <div class="col-md-6 w3agile_newsletter_right">
+                                                                                                                                                                                <form action="#" method="post">
+
+                                                                                                                                                                                </form>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            <div class="clearfix"> </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <!-- //newsletter -->
+                                                                                                                                                                    <!-- footer -->
+                                                                                                                                                                    <div class="footer">
+                                                                                                                                                                        <div class="container">
+                                                                                                                                                                            <div class="w3_footer_grids">
+                                                                                                                                                                                <div class="col-md-3 w3_footer_grid">
+                                                                                                                                                                                    <h3>Contact</h3>
+                                                                                                                                                                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+                                                                                                                                                                                    <ul class="address">
+                                                                                                                                                                                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+                                                                                                                                                                                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+                                                                                                                                                                                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+                                                                                                                                                                                    </ul>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                <div class="col-md-3 w3_footer_grid">
+                                                                                                                                                                                    <h3>Information</h3>
+                                                                                                                                                                                    <ul class="info"> 
+                                                                                                                                                                                        <li><a href="about.html">About Us</a></li>
+                                                                                                                                                                                        <li><a href="mail.html">Contact Us</a></li>
+                                                                                                                                                                                        <li><a href="short-codes.html">Short Codes</a></li>
+                                                                                                                                                                                        <li><a href="faq.html">FAQ's</a></li>
+                                                                                                                                                                                        <li><a href="products.html">Special Products</a></li>
+                                                                                                                                                                                    </ul>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                <div class="col-md-3 w3_footer_grid">
+                                                                                                                                                                                    <h3>Category</h3>
+                                                                                                                                                                                    <ul class="info"> 
+                                                                                                                                                                                        <li><a href="dresses.html">Dresses</a></li>
+                                                                                                                                                                                        <li><a href="sweaters.html">Sweaters</a></li>
+                                                                                                                                                                                        <li><a href="shirts.html">Shirts</a></li>
+                                                                                                                                                                                        <li><a href="sarees.html">Sarees</a></li>
+                                                                                                                                                                                        <li><a href="skirts.html">Shorts Skirts</a></li>
+                                                                                                                                                                                    </ul>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                <div class="col-md-3 w3_footer_grid">
+                                                                                                                                                                                    <h3>Profile</h3>
+                                                                                                                                                                                    <ul class="info"> 
+                                                                                                                                                                                        <li><a href="products.html">Summer Store</a></li>
+                                                                                                                                                                                        <li><a href="checkout.html">My Cart</a></li>
+                                                                                                                                                                                    </ul>
+                                                                                                                                                                                    <h4>Follow Us</h4>
+                                                                                                                                                                                    <div class="agileits_social_button">
+                                                                                                                                                                                        <ul>
+                                                                                                                                                                                            <li><a href="#" class="facebook"> </a></li>
+                                                                                                                                                                                            <li><a href="#" class="twitter"> </a></li>
+                                                                                                                                                                                            <li><a href="#" class="google"> </a></li>
+                                                                                                                                                                                            <li><a href="#" class="pinterest"> </a></li>
+                                                                                                                                                                                        </ul>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                <div class="clearfix"> </div>
+                                                                                                                                                                            </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <div class="footer-copy">
+                                                                                                                                                                            <div class="footer-copy1">
+                                                                                                                                                                                <div class="footer-copy-pos">
+                                                                                                                                                                                    <a href="#home1" class="scroll"><img src="images/arrow.png" alt=" " class="img-responsive" /></a>
+                                                                                                                                                                                </div>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            <div class="container">
+
+                                                                                                                                                                            </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <!-- //footer -->
+                                                                                                                                                                    </h:body>
+                                                                                                                                                                    </html>
 

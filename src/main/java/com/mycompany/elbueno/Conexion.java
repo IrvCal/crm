@@ -7,7 +7,9 @@ package com.mycompany.elbueno;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -34,5 +36,27 @@ public class Conexion {
         }
         return cn;
     }
+    
+     public ResultSet selectReturn(String script) {
+        ResultSet resultSet = null;
+        Statement p = null;
+        conectarse();
+        try {
+            p = cn.createStatement();
+            resultSet = p.executeQuery(script);
+            if (resultSet.next()) {
+                System.out.println("Tiene");
+                return resultSet;
+            } else {
+                System.out.println("No tiene");
+                return null;
+            }
+            //return resultSet;
 
+        } catch (Exception e) {
+            System.out.println("Exepcion Conection: " + e.toString());
+            return resultSet;
+        }
+    }
+ 
 }
