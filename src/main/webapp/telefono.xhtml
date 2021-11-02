@@ -23,19 +23,16 @@
                                 <button class="btn btn-secondary"> 
                                     <img src="imgs/perfil.png " height="100" width="100" />
                                 </button> 
-                                <span class="name mt-3">Usuario Garcia Perez</span>
+                                <span class="name mt-3">Usuario #{perfil.user.nombre} #{perfil.user.apPaterno} #{perfil.user.apMaterno}</span>
                                 
-                                <span class="idd">usuario@mail.com</span>
+                                <span class="idd">#{perfil.user.email}</span>
                                 <br></br>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Telefono</span>
-                                    <h:inputText id="calle" class="form-control" /> 
+                                    <h:inputText id="calle" class="form-control" value="#{perfil.telefono}" maxlength="10"/> 
                                 </div>
-
-     
-
-                                <h:commandButton id="btn_perfil_regresar"  action="#{direccion.guardar()}" class="btn btn-primary"  value="Guardar"/>
+                                <h:commandButton id="btn_perfil_regresar"  action="#{perfil.guardarTelefono()}" class="btn btn-primary"  value="Guardar"/>
                             </div>
                         </div>
                     </div>

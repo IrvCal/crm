@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package com.mycompany.elbueno;
+
+import dao.DireccionDAO;
+import dto.DireccionDTO;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -14,13 +17,14 @@ import javax.inject.Named;
  */
 @Named("direccion")
 @SessionScoped
-public class direccion implements Serializable{
-    
+public class direccion implements Serializable {
+
     private String calle;
     private String colonia;
     private String municipio;
     private String estado;
     private String cp;
+    //estos no se estan ocupando 
     private String no_int;
     private String no_ext;
 
@@ -79,14 +83,32 @@ public class direccion implements Serializable{
     public void setNo_ext(String no_ext) {
         this.no_ext = no_ext;
     }
-  
 
-    
-    public String guardar ()
-    {
+    public String guardar() {
         return "perfilusuario.xhtml";
     }
-    
-   
-    
+
+    public void guardarDireccionDB() {
+        System.out.println(toString());
+        if (Utils.camposNoVacios(calle, colonia, municipio, estado, cp)) {
+            if (Utils.validaCorreo(cp, StaticAtributes.TELEFONO)) {
+                if (new DireccionDAO().saveAddresToDB(new DireccionDTO(calle, colonia, estado, municipio, cp))) {
+                    Utils.makeMessege("Direccion guardada correctamente");
+                } else {
+                    Utils.makeMessege("Ocurrio un error intentelo mas tarde");
+                }
+            } else {
+                Utils.makeMessege("El codigo postal no es un numero");
+            }
+        } else {
+            Utils.makeMessege("Favor de llenar el formulario de forma correcta");
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "direccion{" + "calle=" + calle + ", colonia=" + colonia + ", municipio=" + municipio + ", estado=" + estado + ", cp=" + cp + ", no_int=" + no_int + ", no_ext=" + no_ext + '}';
+    }
+
 }

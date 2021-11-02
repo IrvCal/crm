@@ -12,7 +12,6 @@
             integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
             crossorigin="anonymous"
             />
-
     </h:head>
     <h:body>
         <h:form id="formid">
@@ -24,21 +23,21 @@
                                 <button class="btn btn-secondary"> 
                                     <img src="imgs/perfil.png " height="100" width="100" />
                                 </button> 
-                                <span class="name mt-3">Usuario García Pérez</span>
-                               
-                                <span class="idd">usuario@mail.com</span>
-                                 <br></br>
+                                <span class="name mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuario <br/> #{perfil.user.nombre} #{perfil.user.apPaterno} #{perfil.user.apMaterno}</span>
+
+                                <span class="idd">#{perfil.user.email}</span>
+                                <br></br>
 
                                 <div class="container">
                                     <div class="row justify-content-md-center">
                                         <div class="col-md-auto">
-                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                           Dirección
-                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            Dirección
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </div>
                                     </div>
                                 </div>
-                                    <br></br>
+                                <br></br>
                                 <div class="input-group mb-3" id="dir_btn" >
 
                                     <h:commandButton id="btn_reg_direc"  action="#{perfil.direccion()}" class="btn btn-primary"  value="Registrar"/>
@@ -48,17 +47,19 @@
                                 <div class="container">
                                     <div class="row justify-content-md-center">
                                         <div class="col-md-auto">
-                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                           Teléfono
-                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            Teléfono
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <br/>
+                                            #{perfil.user.telefono}
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </div>
                                     </div>
                                 </div>
-                                    <br></br>
+                                <br></br>
                                 <div class="input-group mb-3" id="tel_btn">
 
-                                    <h:commandButton id="btn_reg_tel"  action="#{perfil.telefono()}" class="btn btn-primary"  value="Registrar"/>
-                                    <h:commandButton id="btn_mod_tel"  action="#{perfil.telefono()}" class="btn btn-primary"  value="Modificar"/>
+                                    <h:commandButton id="btn_reg_tel"  action="#{perfil.telefono()}" class="btn btn-primary"  value="Editar"/>
                                 </div>
 
                                 <h:commandButton id="btn_perfil_regresar"  action="#{perfil.regresar()}" class="btn btn-primary"  value="Regresar"/>

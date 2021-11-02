@@ -90,19 +90,33 @@ public class Registro implements Serializable {
     public String registrarUsuario() {
 
         //La abundancia de los ifs es el poder de las redes neuronales hoy en dia XD
-        if (Utils.validaCamposVacios(nombre, apMaterno, apPaterno, email, pass, passRep)) {
+        if (Utils.camposNoVacios(nombre, apMaterno, apPaterno, email, pass, passRep)) {
             if (Utils.validaCorreo(nombre, 2)) {
                 if (Utils.validaCorreo(apPaterno, 2)) {
                     if (Utils.validaCorreo(nombre, 2)) {
                         if (Utils.validaCorreo(email, 1)) {
-                            if (passRep.equals(pass)) {
-                                if (new UserDAO().insertUser(nombre, apPaterno, apMaterno, email, pass)) {
-                                    Utils.makeMessege("Usuario registrado correcatemnte");
-                                } else {
-                                    Utils.makeMessege("Ocurrio un error intentelo mas tarde");
-                                }
+                            if (pass.length() < 5 || pass.length() > 20) {
+                                Utils.makeMessege("La contrasenia debe de tener de 5 a 20 caracteres, longitud actual: "+pass.length());
                             } else {
-                                Utils.makeMessege("Las contrasenias no coinciden");
+                                if (passRep.equals(pass)) {
+                                    int response = new UserDAO().insertUser(nombre, apPaterno, apMaterno, email, pass);
+                                    switch (response) {
+                                        case 1:
+                                            Utils.makeMessege("El usuario se registro correctamente");
+                                            break;
+                                        case 2:
+                                            Utils.makeMessege("Correo ya registrado porfavor intente con otro");
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            Utils.makeMessege("Occurrio un error, intentelo mas tarde");
+                                            break;
+                                    }
+
+                                } else {
+                                    Utils.makeMessege("Las contrasenias no coinciden");
+                                }
                             }
                         } else {
                             Utils.makeMessege("El formato del correo no coincide");
@@ -121,7 +135,7 @@ public class Registro implements Serializable {
         }
 //        System.out.println("Registrando");
 //        System.out.println(toString());
-        return "";
+        return "registro.xhtml";
     }
 
     @Override
