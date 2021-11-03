@@ -45,6 +45,7 @@ public class productosDao {
                     int status = rs.getInt("status");
                     if(status==1){
                     producto = new Producto();
+                        System.out.println(rs.getString("nombre"));
                     producto.setNombre(rs.getString("nombre"));
                     producto.setDescripcion(rs.getString("descripcion"));
                     producto.setPrecio(rs.getLong("precio"));
@@ -60,5 +61,9 @@ public class productosDao {
             System.out.println("Error DireccionSecurity: " + e.toString());
         }
         return productos;
+    }
+    public static void main(String[] args) {
+        productosDao productosDao1 = new productosDao();
+        productosDao1.getShop("1");
     }
 }

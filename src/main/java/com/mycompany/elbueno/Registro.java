@@ -101,6 +101,9 @@ public class Registro implements Serializable {
                                 if (passRep.equals(pass)) {
                                     int response = new UserDAO().insertUser(nombre, apPaterno, apMaterno, email, pass);
                                     switch (response) {
+                                        case 0:
+                                            Utils.makeMessege("Hubo un error guardando tu contraseña, intentalo mas tarde");
+                                            break;
                                         case 1:
                                             Utils.makeMessege("El usuario se registro correctamente");
                                             break;

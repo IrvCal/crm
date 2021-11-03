@@ -23,18 +23,25 @@ public class UserDAO {
     private String query;
 
     public int insertUser(String nombre, String apPat, String apMat, String email, String pass) {
+        String passEncripatada = "";
         try {
             if (Utils.correoExisteDB(email)) {
                 System.out.println("Usuario existente");
                 return 2;
             } else {
+                try {
+                    passEncripatada = Utils.DigestSHA256(pass);
+                } catch (Exception e) {
+                    System.out.println("Error digiriedo pass"+e.toString());
+                    return 0;
+                }
                 con = new Conexion();
                 cn = con.conectarse();
                 query = "insert into users (name,apPat,apMat,user_name,password) values ('"
-                        + nombre + "','" + apPat + "','" + apMat + "','" + email + "','" + pass + "')";
+                        + nombre + "','" + apPat + "','" + apMat + "','" + email + "','" + passEncripatada + "')";
                 ps = cn.prepareStatement(query);
                 ps.executeUpdate();
-
+                
                 Utils.closeConections(cn, ps);
                 return 1;
             }

@@ -4,6 +4,9 @@
  */
 package com.mycompany.elbueno;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +21,9 @@ import javax.faces.context.FacesContext;
  * @author irvcal
  */
 public class Utils {
+
+    private static final String DIGEST_ALGORITHM = "SHA-256";
+    private static final String CHARSET = "UTF-8";
 
     public static boolean camposNoVacios(String... campos) {
         for (String e : campos) {
@@ -111,5 +117,31 @@ public class Utils {
             System.out.println(e);
         }
         return false;
+    }
+
+    /**
+     * Metodo para pasar la contraseña a SHA-256
+     *
+     * @param data
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public static String DigestSHA256(String data) throws UnsupportedEncodingException {
+        StringBuilder toHexString = new StringBuilder();
+        try {
+            MessageDigest md = MessageDigest.getInstance(DIGEST_ALGORITHM);
+            byte[] hash = md.digest(data.getBytes(CHARSET));
+            for (int i = 0; i < hash.length; i++) {
+                String tempHex = Integer.toHexString(0xff & hash[i]);
+                if (tempHex.length() == 1) {
+                    toHexString.append('0');
+                }
+                toHexString.append(tempHex);
+            }
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
+            System.out.println("Error "+ex.toString());
+        }
+        System.out.println("HEX" +  toHexString.toString());
+        return toHexString.toString();
     }
 }

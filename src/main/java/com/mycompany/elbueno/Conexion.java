@@ -10,21 +10,37 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 /**
  *
  * @author viris
  */
 public class Conexion {
-    private String user="postgres";
-    private String pass="123456";
-    private Connection cn=null;
-    public Conexion() {
 
+    private String user = "postgres";
+    private String pass = "123456";
+    private Connection cn = null;
+
+    InitialContext ic;
+    private DataSource ds = null;
+
+    public Conexion() {
+        try {
+            System.out.println("mypool_resourse");
+            this.ic = new InitialContext();
+            ds = (DataSource) ic.lookup("jdbc/mypool_resourse");
+        } catch (NamingException ex) {
+            System.out.println("Naming exception en clase Conexion");
+        }
     }
 
     public Connection conectarse() {
-        try {
+        /*try {
             Class.forName("org.postgresql.Driver");
             System.out.println("conectarse");
             cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/crm", user, pass);
@@ -32,12 +48,24 @@ public class Conexion {
         } catch (SQLException ex) {
             System.out.println(ex);
         } catch (ClassNotFoundException ex) {
-            
+
+        }*/
+        Connection con = null;
+        try {
+            con = ds.getConnection();
+
+            if (con != null) {
+                System.out.println("SUCCESFUL connection to the database --ORACLE--");
+            } else {
+                System.out.println("FAILED connection attempt to the database --ORACLE--");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         return cn;
     }
-    
-     public ResultSet selectReturn(String script) {
+
+    public ResultSet selectReturn(String script) {
         ResultSet resultSet = null;
         Statement p = null;
         conectarse();
@@ -58,5 +86,5 @@ public class Conexion {
             return resultSet;
         }
     }
- 
+
 }

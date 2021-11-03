@@ -1,6 +1,8 @@
-<<<<<<< HEAD
+C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\dao\DireccionDAO.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\confirmar.java
+C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\dto\UserDTO.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\JAXRSConfiguration.java
+C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\dto\DireccionDTO.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\Conexion.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\Registro.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\menu.java
@@ -9,6 +11,7 @@ C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\controller
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\carrito.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\categorias.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\Utils.java
+C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\StaticAtributes.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\resources\JavaEE8Resource.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\service\ProdcutoService.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\agradecimiento.java
@@ -19,25 +22,3 @@ C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\models\Pro
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\Access.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\com\mycompany\elbueno\Validacion.java
 C:\Users\viris\OneDrive\Documentos\NetBeansProjects\crm\src\main\java\dao\UserDAO.java
-=======
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/StaticAtributes.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/categorias.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/menu.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/dto/UserDTO.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/JAXRSConfiguration.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/dao/UserDAO.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/dao/DireccionDAO.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/Conexion.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/Registro.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/catalogo.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/dto/DireccionDTO.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/perfil.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/Access.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/direccion.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/resources/JavaEE8Resource.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/Validacion.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/Utils.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/agradecimiento.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/confirmar.java
-/home/irvcal/Documents/JavaProyects/crm/src/main/java/com/mycompany/elbueno/carrito.java
->>>>>>> f8325fdf8cd869a37fb10222d0deb61615360308

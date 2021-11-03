@@ -29,7 +29,6 @@ public class Access implements Serializable {
                     }else{
                         Utils.makeMessege("ESTE CORREO NO ESTA REGISTRADO");
                     }
-                    
                 }else{
                     Utils.makeMessege("CORREO NO VALIDO");
                 }
