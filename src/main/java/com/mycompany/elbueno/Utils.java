@@ -101,7 +101,8 @@ public class Utils {
         ResultSet rs;
         String query;
         try {
-            query = "select * from users where user_name = '" + email + "'";
+            return true;
+            /*query = "select * from users where user_name = '" + email + "'";
             con = new Conexion();
             cn = con.conectarse();
             ps = cn.prepareStatement(query);
@@ -112,7 +113,7 @@ public class Utils {
                 closeConections(cn, rs, ps);
                 return true;
             }
-            closeConections(cn, rs, ps);
+            closeConections(cn, rs, ps);*/
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -143,5 +144,8 @@ public class Utils {
         }
         System.out.println("HEX" +  toHexString.toString());
         return toHexString.toString();
+    }
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        System.out.println(DigestSHA256("123456"));
     }
 }

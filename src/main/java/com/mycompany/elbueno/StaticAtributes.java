@@ -14,4 +14,5 @@ public class StaticAtributes {
     
     public static UserDTO USER;
     public static final int TELEFONO = 3;
+    public static final int CORREO = 1;
 }

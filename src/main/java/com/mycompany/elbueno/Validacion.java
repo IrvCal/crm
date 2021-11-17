@@ -30,14 +30,14 @@ public class Validacion {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
         try {
-            System.out.println("Username: " + email + " Password: " + pass);
+            System.out.println("Metimos= Username: " + email + " Password: " + pass);
             request.login(email, pass);
         } catch (Exception ex) {
-            System.out.println("\n\n\n\n\n\nException 1 from Servlet: " + ex.toString());
+            System.out.println("\n\n\nException from Servlet: " + ex.toString());
 
             if (ex.getMessage().contains("Login failed")) {
                 //setErrorMessage("login.faild");
-                //System.out.println("\n\n\n\n\n\nException 2 from Servlet: " + ex.toString());
+                System.out.println("\n\n\n\n\n\nLogin failed: " + ex.toString());
 
                 return false;
             }

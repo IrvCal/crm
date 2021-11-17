@@ -8,6 +8,7 @@ import com.mycompany.elbueno.Conexion;
 import com.mycompany.elbueno.StaticAtributes;
 import com.mycompany.elbueno.Utils;
 import dto.DireccionDTO;
+import dto.UserDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -21,7 +22,7 @@ public class DireccionDAO {
     private Connection cn;
     private PreparedStatement ps;
     private String query;
-
+    
     public boolean saveAddresToDB(DireccionDTO direccion) {
         try {
             con = new Conexion();

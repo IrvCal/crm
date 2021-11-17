@@ -111,6 +111,7 @@ public class Registro implements Serializable {
                                             Utils.makeMessege("Correo ya registrado porfavor intente con otro");
                                             break;
                                         case 3:
+                                             Utils.makeMessege("Ocurrio un error guardando al usuario");
                                             break;
                                         default:
                                             Utils.makeMessege("Occurrio un error, intentelo mas tarde");
