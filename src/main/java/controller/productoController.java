@@ -18,6 +18,7 @@ public class productoController {
     /**
      * @return the producto
      */
+    //aqui va un comentario de prueba
     public List<Producto> getCarrito(String id) {
        return productos = service.getProducts(id);
     }  
